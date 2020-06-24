@@ -15,7 +15,7 @@ from rcnn.processing.nms import gpu_nms_wrapper, cpu_nms_wrapper
 from rcnn.processing.bbox_transform import bbox_overlaps
 
 class RetinaFaceCoV:
-  def __init__(self, prefix, epoch, ctx_id=0, network='net31', nms=0.4, nocrop=False):
+  def __init__(self, prefix, epoch, ctx_id=0, network='net3', nms=0.4, nocrop=False):
     self.ctx_id = ctx_id
     self.network = network
     self.nms_threshold = nms
@@ -34,8 +34,8 @@ class RetinaFaceCoV:
     if network=='ssh' or network=='vgg':
       pixel_means=[103.939, 116.779, 123.68]
       self.preprocess = True
-    #elif network=='net3':
-    #  _ratio = (1.,)
+    elif network=='net3':
+      _ratio = (1.,)
     elif network=='net3l':
       _ratio = (1.,)
       self.landmark_std = 0.2
